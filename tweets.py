@@ -1,4 +1,4 @@
-git #####################################################################
+#####################################################################
 ## File Name: gatherTweets.py
 ## By: Daniel Kato
 ## Description: A series of funcitons to aid in collecting tweets
