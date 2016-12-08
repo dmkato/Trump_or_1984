@@ -11,9 +11,10 @@ import twitter
 import tweets
 
 # Globals
-percentMatch = 80
+percentMatch = 50
 
 def main():
+
     # Set keys found at https://apps.twitter.com
     consumer_key = '1AeMVu48Xly5oNzqfy4GLpngI'
     consumer_secret = 'kKqqxu7vxuvxdFkWqRgTPOyQSqmNimGNZ2MbWLvoLJo0Ug3nX3'
@@ -38,9 +39,9 @@ def main():
 
     # Fetch Trump Tweets
     print("**********************************")
-    print("     Fetching Trump Tweets...")
+    print("     Get Trump Tweets...")
     print("**********************************")
-    trumpTweets = tweets.getAllTweets(api)
+    trumpTweets = tweets.getTweets(api)
     print('\n')
 
     # Compare to novel
@@ -49,7 +50,15 @@ def main():
     print("*******************************")
     txtFile = open('1984.txt', 'r')
     _1984Text = txtFile.read()
-    similarQuotes = tweets.compare(trumpTweets, _1984Text)
+    similarQuotes = tweets.compare(trumpTweets, _1984Text, percentMatch)
     print('\n')
+
+    # Matches
+    print("*****************")
+    print("     Matches")
+    print("*****************")
+    for quote in similarQuotes:
+        print(quote.text)
+
 
 main()
